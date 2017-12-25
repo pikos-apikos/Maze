@@ -1,5 +1,5 @@
 # Maze App
-This is a maze solver app for the e-Travel Maze Challenge
+This is a maze solver app for the e-Travel Maze Challenge written in C# using .NET Core 2.0
 
 ## Build
 dotnet restore
