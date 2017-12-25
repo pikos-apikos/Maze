@@ -205,7 +205,7 @@ namespace MazeApp
 
             // Add logging
             var logger = new LoggerFactory()
-                .AddFile("Logs/mazeapp-{Date}.txt")
+                .AddFile("Logs/mazeapp-{Date}.log")
                 .AddConsole()
                 .AddDebug(minLevel: LogLevel.Trace); 
             
