@@ -1,0 +1,12 @@
+﻿{
+  "Maze": {
+    "MazeFile": ".\\TestFiles\\maze8x8.txt",
+    "MazeSolver": "BFSR",
+    "MinWidth": 2,
+    "MinHeight": 2,
+    "OpenChar": "_",
+    "WallChar": "X",
+    "StartChar": "S",
+    "FinishChar": "G"
+  }
+}
