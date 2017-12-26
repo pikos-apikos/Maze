@@ -1,6 +1,6 @@
 # Maze App
 
-This is a maze solver app for the e-Travel Maze Challenge written in C# using .NET Core 2.0
+This is a maze solver app for the e-Travel Maze Challenge written in C# using .NET Core 2.0 
 
 ## Build
 
@@ -30,6 +30,6 @@ Options:
 -  MazeFile: Maze file path
 -  MazeSolver: Algorithm (supported algorithm BFS, BFSR (Recursive), DFS, DFSR (Recursive), DJK (Dijkstra))
 -  OpenChar: Open path character, default: _
--  WallChar": Wall character, default: X
--  StartChar": Start character, default: S
--  FinishChar": End character, default: G
+-  WallChar: Wall character, default: X
+-  StartChar: Start character, default: S
+-  FinishChar: End character, default: G
