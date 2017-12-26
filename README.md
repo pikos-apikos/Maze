@@ -41,6 +41,8 @@ Running the App using MazeApp.exe or dotnet run, will report the results in the 
 
 ### Credits
 
+[https://msdn.microsoft.com/en-us/library/ms379574\(v=vs.80\).aspx](https://msdn.microsoft.com/en-us/library/ms379574\(v=vs.80\).aspx) (Graph library)
+
 [https://github.com/mikepound/mazesolving](https://github.com/mikepound/mazesolving) (Graph Building, BFS, DFS)
 
 [https://github.com/antonydeepak/MazeSolver](https://github.com/antonydeepak/MazeSolver) (Runner Setup)
