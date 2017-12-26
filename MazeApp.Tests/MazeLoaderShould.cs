@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MazeApp.Interfaces;
 using MazeApp.Maze;
 
-namespace MazeUnitTestProject
+namespace MazeApp.Tests
 {
     public class MazeLoaderShould
     {
@@ -38,7 +38,8 @@ namespace MazeUnitTestProject
 
             IMazeGrid grid = new MazeGrid(glogger);
 
-            grid.Load(sut);
+            sut.Load(grid);
+                      
 
             Assert.InRange<int>(grid.Width, settings.MinWidth, int.MaxValue);
             Assert.InRange<int>(grid.Height, settings.MinHeight, int.MaxValue);
@@ -47,6 +48,32 @@ namespace MazeUnitTestProject
 
         }
 
+        /// <summary>
+        /// Loader should throw if file is not .txt
+        /// </summary>
+        [Fact]
+        public void ThrowIfFileIsNotText()
+        {
+
+            var settings = servicesProvider.GetRequiredService<MazeSettings>();
+
+            settings.MazeFile = "./maze8x8.maz";
+
+            MazeTextLoader sut = new MazeTextLoader(settings, logger);
+
+            var glogger = servicesProvider.GetRequiredService<ILoggerFactory>().CreateLogger<MazeGrid>();
+
+            IMazeGrid grid = new MazeGrid(glogger);
+
+            Assert.Throws<Exception>(() => {
+                grid.Load(sut);
+            });
+
+        }
+
+        /// <summary>
+        /// Loader should throw if file not found
+        /// </summary>
         [Fact]
         public void ThrowIfFileNotFound()
         {
@@ -66,6 +93,29 @@ namespace MazeUnitTestProject
                 grid.Load(sut);
             });
             
+        }
+
+        /// <summary>
+        /// Loader should throw if file is missing start or end point
+        /// </summary>
+        [Fact]
+        public void ThrowIfFileIsMissingStartOrEndPoint()
+        {
+
+            var settings = servicesProvider.GetRequiredService<MazeSettings>();
+
+            settings.MazeFile = "./maze8x6-error-no-start.txt";
+
+            MazeTextLoader sut = new MazeTextLoader(settings, logger);
+
+            var glogger = servicesProvider.GetRequiredService<ILoggerFactory>().CreateLogger<MazeGrid>();
+
+            IMazeGrid grid = new MazeGrid(glogger);
+            
+            Assert.Throws<Exception>(() => {
+                grid.Load(sut);
+            });
+
         }
 
 

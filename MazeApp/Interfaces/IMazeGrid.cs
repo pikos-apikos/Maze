@@ -24,17 +24,10 @@ namespace MazeApp.Interfaces
 
         // Used by the client to solve the maze.
         void Solve(IMazeSolver solver, Action<IEnumerable<IMazeCell>> solvedResultCallback);
-
         
-        // Lists all neighbor cells for a given node.
-        IEnumerable<IMazeCell> GetNeighborCells(IMazeCell curCell);
-
         // Gets a specific cells given the position.
         IMazeCell GetNode(int row, int col);
-
-        // Gets all cells for the maze.
-        IEnumerator<IMazeCell> GetNodes();
-
+        
         // Get a graph representation of the grid 
         Graph<IMazeCell> GenerateGraph();
 

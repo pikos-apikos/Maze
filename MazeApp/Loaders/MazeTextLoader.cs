@@ -190,20 +190,20 @@ namespace MazeApp.Loaders
 
             // calculate the approximate expected file size 
             long maxBytes = 0;
-            long tmp = Encoding.UTF8.GetByteCount(_mazeSettings.StartChar);
+            long tmp = Encoding.Unicode.GetByteCount(_mazeSettings.StartChar);
 
             if (maxBytes < tmp)
                 maxBytes = tmp;
 
-            tmp = Encoding.UTF8.GetByteCount(_mazeSettings.FinishChar);
+            tmp = Encoding.Unicode.GetByteCount(_mazeSettings.FinishChar);
             if (maxBytes < tmp)
                 maxBytes = tmp;
 
-            tmp = Encoding.UTF8.GetByteCount(_mazeSettings.OpenChar);
+            tmp = Encoding.Unicode.GetByteCount(_mazeSettings.OpenChar);
             if (maxBytes < tmp)
                 maxBytes = tmp;
 
-            tmp = Encoding.UTF8.GetByteCount(_mazeSettings.WallChar);
+            tmp = Encoding.Unicode.GetByteCount(_mazeSettings.WallChar);
             if (maxBytes < tmp)
                 maxBytes = tmp;
 

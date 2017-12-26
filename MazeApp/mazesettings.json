@@ -1,6 +1,6 @@
 ﻿{
   "Maze": {
-    "MazeFile": ".\\TestFiles\\maze8x8.txt",
+    "MazeFile": ".\\TestFiles\\maze8x6.txt",
     "MazeSolver": "BFSR",
     "MinWidth": 2,
     "MinHeight": 2,

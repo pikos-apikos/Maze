@@ -17,55 +17,7 @@ namespace MazeApp.Solvers
             _logger = logger;
         }
 
-
-        public void BreadthFirst(IMazeGrid maze, GraphNode<IMazeCell> currentNode, LinkedList<GraphNode<IMazeCell>> visited, Action<IEnumerable<IMazeCell>> solvedResultCallback)
-        {
-            
-            // Examine adjacent nodes
-            foreach (GraphNode<IMazeCell> node in currentNode.Neighbors)
-            {
-                if (visited.Contains(node))
-                {
-                    continue;
-                }
-
-                if (maze.Finish.Equals(node.Value))
-                {
-                    visited.AddLast(node);
-
-                    // callback Action and returns path.
-                    List<IMazeCell> cbPath = new List<IMazeCell>();
-
-                    foreach (var p in visited)
-                    {
-                        cbPath.Add(p.Value);
-                    }
-
-                    solvedResultCallback(cbPath);
-
-                    visited.RemoveLast();
-
-                    break;
-                }
-            }
-
-            // In breadth-first, recursion needs to come after visiting adjacent nodes
-            foreach (GraphNode<IMazeCell> node in currentNode.Neighbors)
-            {
-                if (visited.Contains(node) || maze.Finish.Equals(node.Value))
-                {
-                    continue;
-                }
-
-                visited.AddLast(node);
-
-                // Recursion
-                BreadthFirst(maze, node, visited, solvedResultCallback);
-
-                visited.RemoveLast();
-            }
-        }
-
+               
         public void Solve(IMazeGrid maze, Action<IEnumerable<IMazeCell>> solvedResultCallback)
         {
             // the maze graph
@@ -92,7 +44,6 @@ namespace MazeApp.Solvers
 
             
             
-
             while (queue.Count > 0)
             {                
                 currentNode = queue.Dequeue();

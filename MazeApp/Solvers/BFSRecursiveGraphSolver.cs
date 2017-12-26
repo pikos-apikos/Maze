@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MazeApp.Solvers
 {
-    class BFSRecursiveGraphSolver: IMazeSolver
+    public class BFSRecursiveGraphSolver: IMazeSolver
     {
 
         private readonly ILogger _logger;
@@ -96,9 +96,7 @@ namespace MazeApp.Solvers
             {
                 pathTrace.Add(p.Value);
             }
-
-            pathTrace.Reverse();
-
+            
             return pathTrace;
         }
     }

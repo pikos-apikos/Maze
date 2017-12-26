@@ -1,12 +1,8 @@
 ﻿using GraphsLibrary;
 using MazeApp.Interfaces;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.IO;
-
-
 
 namespace MazeApp.Maze
 {
@@ -74,7 +70,7 @@ namespace MazeApp.Maze
         {
 
             if (loader == null)
-                throw new ArgumentNullException("Loader cannot be null", "loader");
+                throw new ArgumentNullException( "loader", "Loader cannot be null");
                       
             
             _logger.LogInformation($"Loading Data Using: {loader.GetType().Name}");
@@ -90,10 +86,10 @@ namespace MazeApp.Maze
         public void Solve(IMazeSolver solver, Action<IEnumerable<IMazeCell>> solvedResultCallback)
         {
             if (solver == null)
-                throw new ArgumentNullException("Solver cannot be null", "solver");
+                throw new ArgumentNullException( "solver", "Solver cannot be null");
 
             if (solvedResultCallback == null)
-                throw new ArgumentNullException("Please provide a callback action", "solvedResultCallback");
+                throw new ArgumentNullException( "solvedResultCallback", "Please provide a callback action");
 
 
             _logger.LogInformation($"Solve Using: {solver.GetType().Name}");
@@ -116,6 +112,9 @@ namespace MazeApp.Maze
         /// </summary>
         public Graph<IMazeCell> GenerateGraph()
         {
+            if(_mazeMap == null)
+                throw new ArgumentNullException("mazeMap", "mazeMap cannot be null");
+
             Graph<IMazeCell> _graph = new Graph<IMazeCell>();
 
             // keeps track of the last left node that creates a horizontaly path
@@ -288,39 +287,7 @@ namespace MazeApp.Maze
         }
 
 
-
-        /// <summary>
-        /// Gets adjacents for a node. Any node can have at most 8 adjacents.
-        /// </summary>
-        public IEnumerable<IMazeCell> GetNeighborCells(IMazeCell curNode)
-        {
-            int rowPosition = curNode.Row;
-            int colPosition = curNode.Col;
-
-            //Validate given node bounds 
-            if (rowPosition < 0 || rowPosition >= _height || colPosition < 0 || colPosition >= _width) 
-                throw new IndexOutOfRangeException();
-
-            List<IMazeCell> neighbors = new List<IMazeCell>(4);
-
-            // move above an below 
-            for (int i = rowPosition - 1; i <= rowPosition + 1; i++)
-            {
-                if (i < 0 || i >= _height || i == rowPosition) //eliminates out of bounds from being sent as adjacents.
-                    continue;
-                neighbors.Add(GetNode(i, colPosition));
-            }
-
-            // move light and left
-            for (int j = colPosition - 1; j <= colPosition + 1; j++)
-            {
-                if ( j < 0 || j >= _width || j == colPosition) //eliminates out of bounds from being sent as adjacents.
-                    continue;
-                neighbors.Add(GetNode(rowPosition, j));
-            }
-
-            return neighbors;
-        }
+        
 
         /// <summary>
         /// Gets a node.
@@ -331,16 +298,7 @@ namespace MazeApp.Maze
             return _mazeMap[row, col];
         }
 
-        /// <summary>
-        /// Gets all maze nodes.
-        /// </summary>
-        public IEnumerator<IMazeCell> GetNodes()
-        {
-            for (int i = 0; i < _height; i++)
-                for (int j = 0; j < _width; j++)
-                    yield return _mazeMap[i, j];
-        }
-
+        
         
         # region GuardMethods
         /// <summary>

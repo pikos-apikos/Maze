@@ -18,11 +18,7 @@ namespace MazeApp.Solvers
 
         }
 
-        public void Dijkstra(GraphNode<IMazeCell> currentNode, GraphNode<IMazeCell> endNode, LinkedList<GraphNode<IMazeCell>> visited, Action<IEnumerable<IMazeCell>> solvedResultCallback)
-        {
-
-        }
-
+      
         public void Solve(IMazeGrid maze, Action<IEnumerable<IMazeCell>> solvedResultCallback)
         {
 
