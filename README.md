@@ -33,3 +33,7 @@ Options:
 -  WallChar: Wall character, default: X
 -  StartChar: Start character, default: S
 -  FinishChar: End character, default: G
+
+### Running
+
+Running the App using MazeApp.exe or dotnet run, will report the results in the terminal and will produce a log file in the .\Logs folder with any Info, Errors or Warning produced by the app
