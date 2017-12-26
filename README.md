@@ -37,3 +37,13 @@ Options:
 ### Running
 
 Running the App using MazeApp.exe or dotnet run, will report the results in the terminal and will produce a log file in the .\Logs folder with any Info, Errors or Warning produced by the app
+
+
+### Credits
+
+[https://github.com/mikepound/mazesolving](https://github.com/mikepound/mazesolving) (Graph Building, BFS, DFS)
+
+[https://github.com/antonydeepak/MazeSolver](https://github.com/antonydeepak/MazeSolver) (Runner Setup)
+
+[https://github.com/matiii/Dijkstra.NET](https://github.com/matiii/Dijkstra.NET) (Dijkstra) 
+
