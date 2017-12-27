@@ -4,15 +4,18 @@ This is a maze solver app for the e-Travel Maze Challenge written in C# using .N
 
 ## Build
 
+```
 dotnet restore
-
 dotnet build
+```
 
 ## Create an executable
 
 cd \MazeApp
 
+```
 dotnet publish -c Release -r win10-x64
+```
 
 This will create an executable MazeApp.exe that you will be able to configure through command line and/or the configuration file 
 
